@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+   <component name="WebServers">
+      <option name="servers">
+         <webServer id="password-server" name="Production &amp; Main" url="https://example.invalid">
+            <fileTransfer rootFolder="/srv" accessType="SFTP" host="example.invalid" port="22" sshConfigId="password-ssh" />
+         </webServer>
+         <webServer id="key-server" name="Key server">
+            <fileTransfer rootFolder="/srv/key" accessType="SFTP" sshConfigId="key-ssh" />
+         </webServer>
+         <webServer id="agent-server" name="Agent server">
+            <fileTransfer accessType="SFTP" sshConfigId="agent-ssh" authAgent="true" />
+         </webServer>
+         <webServer id="ftp-server" name="FTP">
+            <fileTransfer accessType="FTP" host="ftp.example.invalid" port="21" username="fixture-user" />
+         </webServer>
+         <webServer id="ftps-server" name="FTPS">
+            <fileTransfer accessType="FTPS" host="tls.example.invalid" port="990" username="fixture-user">
+               <advancedOptions><advancedOptions passiveMode="true" shareSSLContext="true" /></advancedOptions>
+            </fileTransfer>
+         </webServer>
+         <webServer id="future-server" name="Future">
+            <fileTransfer accessType="FUTURE_PROTOCOL" host="future.example.invalid" futureFlag="retained" />
+         </webServer>
+      </option>
+   </component>
+</project>

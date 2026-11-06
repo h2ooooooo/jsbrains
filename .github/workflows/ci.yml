@@ -1,0 +1,51 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  packages:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [22.22.2, 24.15.0]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: ./.github/actions/setup-npm
+      - run: npm ci --ignore-scripts
+      - name: Audit development and runtime dependencies
+        run: npm audit --include=dev
+      - run: npm run check
+      - run: npm run check:publication
+      - run: npm run check:consumer
+  legacy-runtime:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 20
+      - run: npm ci --ignore-scripts
+      - run: npm run build --workspace=@jalsoedesign/jsbrains
+      - run: npm run build --workspace=@jalsoedesign/jsbrains-cli
+      - run: npm run test:package
+
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.15.0
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+      - uses: ./.github/actions/setup-npm
+      - run: npm run docs:install
+      - run: npm --prefix docs audit --include=dev
+      - run: npm run docs:build

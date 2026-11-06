@@ -1,0 +1,9 @@
+<application>
+   <component name="WebServers">
+      <option name="servers">
+         <webServer id="password-server" name="Production &amp; Main">
+            <fileTransfer accessType="SFTP" host="global.example.invalid" port="22" username="global-user" />
+         </webServer>
+      </option>
+   </component>
+</application>

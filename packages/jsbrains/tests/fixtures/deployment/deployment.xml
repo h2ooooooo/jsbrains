@@ -1,0 +1,17 @@
+<project version="4">
+   <component name="PublishConfigData" serverName="Production &amp; Main" autoUpload="OPAQUE_FUTURE_VALUE">
+      <serverData>
+         <paths name="Production &amp; Main">
+            <serverdata>
+               <mappings>
+                  <mapping local="$PROJECT_DIR$/public" deploy="/public" web="/" />
+                  <mapping local="$PROJECT_DIR$/assets" deploy="/assets" web="/static" />
+                  <mapping local="$UNKNOWN_ROOT$/src" deploy="/src" web="/src" />
+               </mappings>
+               <excludedPaths><excludedPath local="true" path="$PROJECT_DIR$/cache" /></excludedPaths>
+            </serverdata>
+         </paths>
+         <paths name="Key server"><serverdata><mappings><mapping local="C:\Fixture\Project" deploy="/key" web="/" /></mappings></serverdata></paths>
+      </serverData>
+   </component>
+</project>

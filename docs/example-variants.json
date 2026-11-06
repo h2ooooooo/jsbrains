@@ -1,0 +1,220 @@
+{
+    "fixtures": [
+        "PhpStorm2026.2/options/webServers.xml",
+        "PhpStorm2026.2/options/sshConfigs.xml",
+        {
+            "source": "DemoProject/project-name.txt",
+            "target": "DemoProject/.idea/.name"
+        }
+    ],
+    "programs": [
+        {
+            "name": "read-deployments",
+            "page": "api/quick-start.md",
+            "args": "",
+            "output": "Deployments: 1\nDemo: sftp 127.0.0.1:22\nMetadata only: no server connection or Password Safe unlock."
+        },
+        {
+            "name": "read-profiles",
+            "page": "guide/portline.md",
+            "args": "",
+            "output": "Profiles: 2\nSelected: global/deployments/demo\nconnection: sftp 127.0.0.1:22\nHost matches: 2\nMetadata only: no server connection."
+        },
+        {
+            "name": "inspect-settings",
+            "page": "api/settings-example.md",
+            "args": "",
+            "output": "Settings files: 2\nDeployment XML found: true\nRaw settings contents omitted from output."
+        },
+        {
+            "name": "preview-profile",
+            "page": "guide/writing.md",
+            "args": "",
+            "output": "Source profile: global/deployments/demo\nDestination profile: global/deployments/imported\nPlanned operations: create\nNative settings written: no"
+        }
+    ],
+    "assets": [
+        {
+            "name": "read-deployments",
+            "filename": "read-deployments.ts",
+            "language": "TypeScript"
+        },
+        {
+            "name": "read-deployments",
+            "filename": "read-deployments.js",
+            "language": "JavaScript"
+        },
+        {
+            "name": "read-deployments",
+            "filename": "read-deployments.mjs",
+            "language": "MJS"
+        },
+        {
+            "name": "read-deployments",
+            "filename": "read-deployments.cjs",
+            "language": "CommonJS"
+        },
+        {
+            "name": "read-profiles",
+            "filename": "read-profiles.ts",
+            "language": "TypeScript"
+        },
+        {
+            "name": "read-profiles",
+            "filename": "read-profiles.js",
+            "language": "JavaScript"
+        },
+        {
+            "name": "read-profiles",
+            "filename": "read-profiles.mjs",
+            "language": "MJS"
+        },
+        {
+            "name": "read-profiles",
+            "filename": "read-profiles.cjs",
+            "language": "CommonJS"
+        },
+        {
+            "name": "inspect-settings",
+            "filename": "inspect-settings.ts",
+            "language": "TypeScript"
+        },
+        {
+            "name": "inspect-settings",
+            "filename": "inspect-settings.js",
+            "language": "JavaScript"
+        },
+        {
+            "name": "inspect-settings",
+            "filename": "inspect-settings.mjs",
+            "language": "MJS"
+        },
+        {
+            "name": "inspect-settings",
+            "filename": "inspect-settings.cjs",
+            "language": "CommonJS"
+        },
+        {
+            "name": "preview-profile",
+            "filename": "preview-profile.ts",
+            "language": "TypeScript"
+        },
+        {
+            "name": "preview-profile",
+            "filename": "preview-profile.js",
+            "language": "JavaScript"
+        },
+        {
+            "name": "preview-profile",
+            "filename": "preview-profile.mjs",
+            "language": "MJS"
+        },
+        {
+            "name": "preview-profile",
+            "filename": "preview-profile.cjs",
+            "language": "CommonJS"
+        }
+    ],
+    "cliCases": [
+        {
+            "heading": "Get one property",
+            "bin": "packages/jsbrains-portline-cli/bin/cli.js",
+            "command": "jsbrains-profiles",
+            "args": [
+                "get",
+                "global/deployments/demo",
+                "host",
+                "--config",
+                "./PhpStorm2026.2",
+                "--json"
+            ],
+            "code": 0,
+            "stdout": "\"127.0.0.1\"",
+            "stderr": "",
+            "colored": false
+        },
+        {
+            "heading": "List profiles",
+            "bin": "packages/jsbrains-portline-cli/bin/cli.js",
+            "command": "jsbrains-profiles",
+            "args": [
+                "list",
+                "--config",
+                "./PhpStorm2026.2",
+                "--json"
+            ],
+            "code": 0,
+            "stdout": "[\n  {\n    \"path\": \"global/deployments/demo\",\n    \"host\": \"127.0.0.1\",\n    \"protocol\": \"sftp\",\n    \"keyFile\": \"\",\n    \"remoteDirectory\": \"\"\n  },\n  {\n    \"path\": \"global/ssh/demo-ssh\",\n    \"host\": \"127.0.0.1\",\n    \"protocol\": \"ssh\",\n    \"keyFile\": \"\",\n    \"remoteDirectory\": \"\"\n  }\n]",
+            "stderr": "",
+            "colored": false
+        },
+        {
+            "heading": "Search metadata",
+            "bin": "packages/jsbrains-portline-cli/bin/cli.js",
+            "command": "jsbrains-profiles",
+            "args": [
+                "search",
+                "127.0.0.1",
+                "--config",
+                "./PhpStorm2026.2",
+                "--color"
+            ],
+            "code": 0,
+            "stdout": "Found 2 profiles\n\n\u001b[36m┌\u001b[39m\u001b[36m──────────────────\u001b[39m\u001b[36m┬\u001b[39m\u001b[36m──────────────────────────────────────────\u001b[39m\u001b[36m┐\u001b[39m\n\u001b[36m│\u001b[39m \u001b[1m\u001b[37mLabel           \u001b[39m\u001b[22m \u001b[36m│\u001b[39m \u001b[1m\u001b[37mValue                                   \u001b[39m\u001b[22m \u001b[36m│\u001b[39m\n\u001b[36m├\u001b[39m\u001b[36m──────────────────\u001b[39m\u001b[36m┼\u001b[39m\u001b[36m──────────────────────────────────────────\u001b[39m\u001b[36m┤\u001b[39m\n\u001b[36m│\u001b[39m Name             \u001b[36m│\u001b[39m Demo                                     \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Path             \u001b[36m│\u001b[39m global/deployments/demo                  \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Protocol         \u001b[36m│\u001b[39m sftp                                     \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Host             \u001b[36m│\u001b[39m 127.0.0.1                                \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Port             \u001b[36m│\u001b[39m 22                                       \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Username         \u001b[36m│\u001b[39m deploy                                   \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Password         \u001b[36m│\u001b[39m (hidden*)                                \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Passphrase       \u001b[36m│\u001b[39m                                          \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Credential state \u001b[36m│\u001b[39m available                                \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Authentication   \u001b[36m│\u001b[39m connection/password: available (hidden*) \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Private key      \u001b[36m│\u001b[39m                                          \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Remote           \u001b[36m│\u001b[39m                                          \u001b[36m│\u001b[39m\n\u001b[36m└\u001b[39m\u001b[36m──────────────────\u001b[39m\u001b[36m┴\u001b[39m\u001b[36m──────────────────────────────────────────\u001b[39m\u001b[36m┘\u001b[39m\n\n\u001b[36m┌\u001b[39m\u001b[36m──────────────────\u001b[39m\u001b[36m┬\u001b[39m\u001b[36m─────────────────────\u001b[39m\u001b[36m┐\u001b[39m\n\u001b[36m│\u001b[39m \u001b[1m\u001b[37mLabel           \u001b[39m\u001b[22m \u001b[36m│\u001b[39m \u001b[1m\u001b[37mValue              \u001b[39m\u001b[22m \u001b[36m│\u001b[39m\n\u001b[36m├\u001b[39m\u001b[36m──────────────────\u001b[39m\u001b[36m┼\u001b[39m\u001b[36m─────────────────────\u001b[39m\u001b[36m┤\u001b[39m\n\u001b[36m│\u001b[39m Name             \u001b[36m│\u001b[39m 127.0.0.1           \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Path             \u001b[36m│\u001b[39m global/ssh/demo-ssh \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Protocol         \u001b[36m│\u001b[39m ssh                 \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Host             \u001b[36m│\u001b[39m 127.0.0.1           \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Port             \u001b[36m│\u001b[39m 22                  \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Username         \u001b[36m│\u001b[39m deploy              \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Password         \u001b[36m│\u001b[39m                     \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Passphrase       \u001b[36m│\u001b[39m                     \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Credential state \u001b[36m│\u001b[39m not-stored          \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Authentication   \u001b[36m│\u001b[39m                     \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Private key      \u001b[36m│\u001b[39m                     \u001b[36m│\u001b[39m\n\u001b[36m│\u001b[39m Remote           \u001b[36m│\u001b[39m                     \u001b[36m│\u001b[39m\n\u001b[36m└\u001b[39m\u001b[36m──────────────────\u001b[39m\u001b[36m┴\u001b[39m\u001b[36m─────────────────────\u001b[39m\u001b[36m┘\u001b[39m\n\n*Enable passwords with \u001b[32m--show-password\u001b[39m",
+            "stderr": "",
+            "colored": true
+        },
+        {
+            "heading": "Missing profile",
+            "bin": "packages/jsbrains-portline-cli/bin/cli.js",
+            "command": "jsbrains-profiles",
+            "args": [
+                "get",
+                "Missing",
+                "--config",
+                "./PhpStorm2026.2",
+                "--json"
+            ],
+            "code": 1,
+            "stdout": "",
+            "stderr": "{\"error\":\"Could not find profile by path \\\"Missing\\\"\"}",
+            "colored": false
+        },
+        {
+            "heading": "Read deployments",
+            "bin": "packages/jsbrains-cli/bin/jsbrains.js",
+            "command": "jsbrains",
+            "args": [
+                "deployments",
+                "--global",
+                "--config",
+                "./PhpStorm2026.2",
+                "--color",
+                "--project",
+                "./DemoProject"
+            ],
+            "code": 0,
+            "stdout": "\u001b[1m\u001b[36mDeployments (1)\u001b[39m\u001b[22m\n\u001b[2m<fixture-directory>/DemoProject\u001b[22m\n\n\u001b[1mDemo\u001b[22m  \u001b[35mSFTP\u001b[39m \u001b[2m[global]\u001b[22m\n  \u001b[36m127.0.0.1\u001b[39m:22  user: deploy\n  ID: demo  auth: password\n\u001b[2m  Source: <fixture-directory>/PhpStorm2026.2/options/webServers.xml\u001b[22m",
+            "stderr": "",
+            "colored": true
+        },
+        {
+            "heading": "Original command JSON",
+            "bin": "packages/jsbrains-cli/bin/jsbrains.js",
+            "command": "jsbrains",
+            "args": [
+                "deployments",
+                "--global",
+                "--config",
+                "./PhpStorm2026.2",
+                "--json",
+                "--project",
+                "./DemoProject"
+            ],
+            "code": 0,
+            "stdout": "{\n  \"schemaVersion\": 1,\n  \"command\": \"deployments\",\n  \"data\": {\n    \"installation\": {\n      \"product\": \"PhpStorm\",\n      \"version\": \"2026.2\",\n      \"configPath\": \"<fixture-directory>/PhpStorm2026.2\",\n      \"systemPath\": null,\n      \"platform\": \"<platform>\",\n      \"detected\": false\n    },\n    \"project\": \"<fixture-directory>/DemoProject\",\n    \"deployments\": [\n      {\n        \"id\": \"demo\",\n        \"name\": \"Demo\",\n        \"type\": \"sftp\",\n        \"host\": \"127.0.0.1\",\n        \"port\": 22,\n        \"literalPort\": \"22\",\n        \"username\": \"deploy\",\n        \"rootPath\": null,\n        \"webUrl\": null,\n        \"auth\": {\n          \"type\": \"password\"\n        },\n        \"mappings\": [],\n        \"visibility\": \"global\",\n        \"source\": {\n          \"visibility\": \"global\",\n          \"serverConfigPath\": \"<fixture-directory>/PhpStorm2026.2/options/webServers.xml\",\n          \"installationConfigPath\": \"<fixture-directory>/PhpStorm2026.2\",\n          \"projectPath\": \"<fixture-directory>/DemoProject\",\n          \"rawType\": \"SFTP\"\n        },\n        \"diagnostics\": []\n      }\n    ]\n  }\n}",
+            "stderr": "",
+            "colored": false
+        }
+    ]
+}

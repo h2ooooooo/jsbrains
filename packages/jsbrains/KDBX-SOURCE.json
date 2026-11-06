@@ -1,0 +1,15 @@
+{
+   "component": "kdbxweb",
+   "version": "2.1.1",
+   "sourceEntry": "lib/index.ts",
+   "repository": "https://github.com/keeweb/kdbxweb",
+   "gitHead": "9b86a035a53f1827e427a0fc081bdcccc24f4f1b",
+   "npmIntegrity": "sha512-z+a2+BEzyK2kUh0xDekY7gwc9CkbzSetUyvc78NKVawxV06UG1KYbg9W9hZCJdQPYizIVePTvQsYUXIO1qtAhQ==",
+   "license": "MIT",
+   "compression": "The two fflate imports in the published source are mapped to the owned Node zlib gzip/gunzip adapter. No prebuilt KDBX or fflate ZIP implementation is bundled.",
+   "externalDependencies": [
+      "@xmldom/xmldom"
+   ],
+   "verification": "scripts/check-kdbx-bundle.mjs validates the pinned version, source-map origins and absence of the old ZIP implementation in ESM/CommonJS outputs.",
+   "build": "scripts/generate-kdbx-runtime.mjs builds the published source with the owned native compression adapter for both SDK builds and source dev/test commands. Generated output is ignored and reproducible."
+}

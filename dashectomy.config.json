@@ -1,0 +1,20 @@
+{
+  "exclude": ["dist/**", "node_modules/**"],
+
+  "enDash": true,
+  "ellipsis": true,
+  "quotes": true,
+  "spaces": true,
+  "symbols": true,
+  "ligatures": true,
+  "bullets": true,
+
+  "fractions": false,
+  "emoji": false,
+  "softHyphen": false,
+
+  "includeI18n": false,
+  "maxSizeBytes": 2097152,
+  "staged": true,
+  "restage": true
+}

@@ -1,0 +1,9 @@
+<project version="4">
+   <component name="SshConfigs">
+      <configs>
+         <sshConfig id="password-ssh" host="example.invalid" port="22" username="fixture-user" useOpenSSHConfig="true" />
+         <sshConfig id="key-ssh" authType="KEY_PAIR" host="key.example.invalid" port="2222" username="fixture-key-user" keyPath="$USER_HOME$/.ssh/fixture_key" />
+         <sshConfig id="agent-ssh" authType="OPEN_SSH" host="agent.example.invalid" port="22" username="fixture-agent-user" useOpenSSHConfig="true" />
+      </configs>
+   </component>
+</project>

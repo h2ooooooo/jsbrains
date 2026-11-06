@@ -1,0 +1,49 @@
+name: Documentation
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**', 'scripts/generate-api-docs.mjs', 'scripts/sync-compatibility-docs.mjs', 'packages/jsbrains/docs/COMPATIBILITY.md', '.github/workflows/docs.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.15.0
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+      - uses: ./.github/actions/setup-npm
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v6
+      - run: npm run docs:install
+      - run: npm --prefix docs audit --include=dev
+      - run: npm run docs:build
+        env:
+          DOCS_BASE: ${{ steps.pages.outputs.base_path }}/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/.vitepress/dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,43 @@
+{
+   "version": "1.0.0",
+   "type": "module",
+   "engines": {
+      "node": ">=22.22.2"
+   },
+   "license": "MIT",
+   "name": "@jalsoedesign/jsbrains-portline",
+   "main": "dist/index.js",
+   "types": "dist/index.d.ts",
+   "exports": {
+      ".": {
+         "types": "./dist/index.d.ts",
+         "import": "./dist/index.js"
+      }
+   },
+   "files": [
+      "dist",
+      "README.md",
+      "LICENSE"
+   ],
+   "scripts": {
+      "build": "tsc -p tsconfig.json",
+      "prepack": "npm run build"
+   },
+   "dependencies": {
+      "@jalsoedesign/jsbrains": "1.0.0",
+      "@jalsoedesign/portline-abstract": "^1.0.0",
+      "@jalsoedesign/portline-platform": "^1.0.0"
+   },
+   "publishConfig": {
+      "access": "public"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/h2ooooooo/jsbrains.git",
+      "directory": "packages/jsbrains-portline"
+   },
+   "homepage": "https://h2ooooooo.github.io/jsbrains/",
+   "bugs": {
+      "url": "https://github.com/h2ooooooo/jsbrains/issues"
+   }
+}
