@@ -284,3 +284,5 @@ for (const [filename, hash] of hashes) {
 }
 
 console.log(manifest.assets.length + ' program variants and ' + manifest.cliCases.length + ' CLI cases passed; native fixture bytes unchanged.');
+
+await import('./check-doc-connection.mjs');

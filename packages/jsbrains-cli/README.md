@@ -9,7 +9,7 @@ Requires Node.js 20+. This CLI reads through `@jalsoedesign/jsbrains`. It does n
 After publication:
 
 ```sh
-npm install -g @jalsoedesign/jsbrains-cli
+npm install -g @jalsoedesign/jsbrains-cli@rc
 jsbrains --help
 ```
 
@@ -154,3 +154,7 @@ Chalk colors are enabled for interactive output. `--color` forces them; `--no-co
 `settings` without a filename lists metadata only without opening file contents, so unrelated malformed XML does not prevent a listing. An explicit XML read redacts recognized password, passphrase, token, and secret fields and omits duplicate raw XML. Arbitrary plugin settings may still contain sensitive information. Non-XML reads expose their text as requested. The library's settings API remains available for exact source access.
 
 MIT licensed. This project is independent of JetBrains and is not endorsed by JetBrains s.r.o.
+
+## Optional connection execution
+
+The original `jsbrains` CLI remains read-only and gains no network subcommands. Use the native `@jalsoedesign/jsbrains-portline` adapter with the separate optional `@jalsoedesign/portline-dockline` SDK for an explicit scoped remote operation. See [complete source selection, trust and session examples](https://h2ooooooo.github.io/jsbrains/api/integration). Install the protocol client for the requested capability; reader/CLI metadata use remains free of transport dependencies.

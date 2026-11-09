@@ -16,7 +16,7 @@ npm pack --workspace @jalsoedesign/jsbrains
 npm install "/path/to/package.tgz"
 ```
 
-After publication, the intended installation command is `npm install @jalsoedesign/jsbrains`.
+After publication, the intended installation command is `npm install @jalsoedesign/jsbrains@rc`.
 
 ## Quick start
 
@@ -205,3 +205,7 @@ Ordinary tests use temporary directories and fake secrets. They never copy or op
 MIT. See [LICENSE](LICENSE).
 
 jsbrains is an independent project and is not affiliated with, endorsed by, or sponsored by JetBrains s.r.o. JetBrains and JetBrains product names are trademarks of their respective owner.
+
+## Optional connection execution
+
+For an explicit remote operation, use the native `@jalsoedesign/jsbrains-portline` adapter with the separate shared `@jalsoedesign/portline-dockline` integration. The original SDK stays read-only and supports Node 20; the normalized adapter and execution integration require Node 22.22.2 or newer. See [complete source selection, trust and session examples](https://h2ooooooo.github.io/jsbrains/api/integration). Install the protocol client for the requested capability; reader/CLI metadata use remains free of transport dependencies.

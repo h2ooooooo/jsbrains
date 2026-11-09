@@ -93,3 +93,7 @@ Temporary files removed.
 Each command exits 0 only after its assertions pass. A CLI failure, incorrect response, changed bytes or unexpected trust behavior produces a nonzero exit and an assertion error. Server ports, temporary paths, platform metadata and any file timestamps can vary. The wrapper displays temporary paths as `<temporary-directory>`; the child CLI receives actual paths. Run a single example at a time when comparing its transcript.
 
 These examples require the development dependencies in this checkout, including the local protocol fixtures where applicable. They are not additional published CLI commands. For complete CLI inputs, output contracts and colored terminal examples, use the CLI reference.
+
+## Shared mapper smoke check
+
+The metadata fixture runner above remains offline. After building the repository and installing `@jalsoedesign/portline-dockline`, `npm run demo:execution` additionally checks native-source conversion through the actual shared bridge without opening sockets. See [connection setup and the smoke example](/api/integration#check-mapping-without-a-server). Real scoped examples on that page deliberately connect only when run with explicit native source, profile and credential/trust configuration.

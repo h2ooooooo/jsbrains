@@ -14,3 +14,5 @@ Choose `jsbrains` for read-only IDE inspection or `jsbrains-profiles` for normal
 [Writing commands](/cli/writing) separate preview from apply. [Automation and troubleshooting](/cli/automation) cover output streams and exit handling. Use the [complete inputs](/reference/cli-help) and [captured output reference](/reference/cli-output) for all profile-command cases. The original command has its own [inputs](/reference/jsbrains-help), [outputs](/reference/jsbrains-output) and [contract](/reference/cli).
 
 Commands inspect or explicitly change local settings; they do not open an SSH, transfer or database session. For code, use [API documentation](/api/).
+
+For an explicit remote connection, use the separate [shared execution SDK example](/api/integration). The profile CLI remains responsible for queries and guarded local settings changes; the integration adds no SSH, upload or database subcommands.

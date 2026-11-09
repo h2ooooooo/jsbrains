@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-npm install --global @jalsoedesign/jsbrains-portline-cli
+npm install --global @jalsoedesign/jsbrains-portline-cli@rc
 ```
 
 Use Node.js 22.22.2 or newer. Save the [synthetic configuration](/guide/fixtures), then run from its parent directory.

@@ -131,3 +131,17 @@ The optional bridge uses the same independent build and test commands.
 ## Runnable examples
 
 [Run a local demo](docs/guide/local-demo.md) for one-command examples and captured output. Profile demos use synthetic settings and make no remote connections.
+
+## Optional shared connection execution
+
+Use the [Portline adapter's connection examples](packages/jsbrains-portline/README.md#shared-connection-execution)
+with `@jalsoedesign/portline-dockline` for scoped FTP/SFTP transfers or SSH commands. Execution is shared with
+FileZilla, WinSCP, PuTTY/KiTTY, OpenSSH and HeidiSQL sources; no JetBrains-specific protocol client is needed.
+The native reader remains free of transport dependencies. After installing the optional integration, run
+`npm run demo:execution` to verify synthetic deployment mapping and unsupported-setting refusal without connecting.
+
+For complete source selection, language variants, runtime options and native-only refusal rules, use the
+[connection execution guide](https://h2ooooooo.github.io/jsbrains/api/integration). SSH fingerprints must use
+canonical SHA256 base64; trust callbacks never persist approval. The reader CLI gains no network commands.
+
+See [First release candidate](RELEASE_RC.md) for RC versions and installation commands.

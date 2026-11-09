@@ -78,7 +78,7 @@ const apiSidebar: DefaultTheme.SidebarItem[] = [
                 'link': '/guide/writing'
             },
             {
-                'text': 'Connecting a profile',
+                'text': 'FTP/SFTP and SSH execution',
                 'link': '/api/integration'
             },
             {

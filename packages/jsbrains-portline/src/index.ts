@@ -3,6 +3,15 @@ import type {Deployment, DetectionOptions, JetBrainsInstallation} from '@jalsoed
 import type {AuthenticationMethod, ConnectionDefinition, ConnectionProfile, CredentialReference, CredentialResult, SourceReference} from '@jalsoedesign/portline-abstract';
 import {NativeProfileSource, credential, fileSource, nativeProfile, privateKey, requireSource, selectSource} from '@jalsoedesign/portline-platform';
 
+function record(value: unknown): Record<string, unknown> {
+   return value !== null && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {};
+}
+
+function attribute(value: Record<string, unknown>, name: string): string | undefined {
+   const result = value['@_' + name];
+   return typeof result === 'string' ? result : undefined;
+}
+
 export interface JetBrainsProfileOptions extends DetectionOptions {
    configPath?: string;
    sourceId?: string;
@@ -57,6 +66,10 @@ export class JetBrainsProfileSource extends NativeProfileSource {
       const profiles: ConnectionProfile[] = entries.map(({deployment, group}) => {
          const id = deployment.visibility + '/' + group + '/' + (deployment.id ?? deployment.name);
          const auth = deployment.auth;
+         const raw = deployment.getRaw();
+         const transfer = record(record(raw.server).fileTransfer);
+         const advanced = record(record(transfer.advancedOptions).advancedOptions);
+         const passiveMode = attribute(advanced, 'passiveMode');
          const authentication: AuthenticationMethod[] = [...privateKey(auth.privateKeyPath)];
 
          if (auth.type === 'password') {
@@ -75,11 +88,23 @@ export class JetBrainsProfileSource extends NativeProfileSource {
             authentication.push({type: 'anonymous'});
          }
 
+         if (auth.type === 'unknown') {
+            authentication.push({type: 'unsupported', nativeType: 'JetBrains authentication'});
+         }
+
          const base = {
             id: 'connection',
+            unsupportedOptions: [
+               ...(auth.usesOpenSshConfig ? ['useOpenSSHConfig'] : []),
+               ...(auth.privateKeyPath && /[$][A-Z_]+[$]/.test(auth.privateKeyPath) ? ['unresolved private-key path macro'] : []),
+               ...Object.keys(advanced).filter(key => key.startsWith('@_') && key !== '@_passiveMode')
+                  .map(key => 'advancedOptions.' + key.slice(2)),
+               ...(passiveMode !== undefined && !['true', 'false'].includes(passiveMode) ? ['passiveMode'] : [])
+            ],
             endpoint: {
                host: deployment.host ?? '',
-               port: deployment.port ?? (deployment.type === 'sftp' ? 22 : 21),
+               port: deployment.literalPort !== undefined && deployment.port === null ? 0 :
+                  deployment.port ?? (deployment.type === 'sftp' ? 22 : 21),
                username: deployment.username ?? undefined
             },
             authentication
@@ -90,6 +115,7 @@ export class JetBrainsProfileSource extends NativeProfileSource {
          } : deployment.type === 'ftp' || deployment.type === 'ftps' ? {
             ...base, kind: 'ftp', protocol: deployment.type,
             tls: deployment.type === 'ftp' ? 'none' : 'optional',
+            passive: passiveMode === undefined ? undefined : passiveMode === 'true',
             remoteDirectory: deployment.rootPath ?? undefined
          } : {...base, kind: 'unsupported', protocol: deployment.type};
          native.set(id, deployment);

@@ -11,7 +11,7 @@ This specification describes the current packages. Exact exported signatures are
 | `@jalsoedesign/jsbrains-portline` | Normalize deployment/SSH metadata and expose the guarded native writer factory | Node 22.22.2 or newer |
 | `@jalsoedesign/jsbrains-portline-cli` | `jsbrains-profiles` executable with queries, discovery and preview/sync/apply/status | Node 22.22.2 or newer |
 
-The original library and command do not change IDE settings. The separate Portline integration supports selected native settings writes. No package deploys files, opens SSH/database sessions or runs IDE/plugin code. Dockline provides separate transport operations; profile-to-transport mapping remains the caller's responsibility.
+The original library and command do not change IDE settings. The separate Portline integration supports selected native settings writes. The native packages do not deploy files, open SSH/database sessions or run IDE/plugin code. The optional `@jalsoedesign/portline-dockline` integration now supplies the shared profile-to-Dockline mapping and scoped FTP/SFTP or SSH execution. Database execution remains outside the bridge; native-only requirements and SSH-hop routes are explicitly refused. See [connection execution](/api/integration).
 
 ## Discovery and project scope
 

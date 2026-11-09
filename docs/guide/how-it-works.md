@@ -80,3 +80,7 @@ Raw settings can contain sensitive native fields. The [credential guide](/guide/
 The original SDK provides IDE-specific reads. The optional [Portline bridge](/guide/portline) adds normalized profiles and guarded native writing. Reading does not change settings, create Password Safe entries, transfer files or run SSH commands. Supported writes use a separate preview/apply operation.
 
 Start with the [API quick start](/api/quick-start), [CLI quick start](/cli/quick-start) or [settings and deployments guide](/guide/deployments).
+
+## Shared execution after native interpretation
+
+The source now exposes normalized execution details alongside metadata. `@jalsoedesign/portline-dockline` performs the shared mapping and delegates live sessions to optional Dockline clients. Native-only requirements appear in `unsupportedOptions`; they are refused rather than dropped. Read [the scoped source-to-session walkthrough](/api/integration) for supported operations and explicit trust/authentication options.

@@ -36,3 +36,7 @@ The original SDK exposes IDE installations, projects, deployments, mappings and 
 Read operations describe saved metadata without opening a remote session. Use [Dockline](https://h2ooooooo.github.io/dockline/) for transfers/SSH and [Dockline Keys](https://h2ooooooo.github.io/dockline/keys/) for key loading and conversion.
 
 Part of the [Portline family](https://h2ooooooo.github.io/portline/libraries/), with each application library maintained in its own repository.
+
+## Reuse a saved connection
+
+[Connect a selected profile](/api/integration) through the optional shared Portline–Dockline integration. Use the same scoped execution API across application readers while keeping native parsing and metadata queries free of transport dependencies.

@@ -5,7 +5,7 @@ Read a saved deployment with the original jsbrains SDK. The optional normalized-
 ## Install
 
 ```sh
-npm install @jalsoedesign/jsbrains
+npm install @jalsoedesign/jsbrains@rc
 ```
 
 Use Node.js 20 or newer for the original SDK. Follow [language setup](/guide/examples) for TypeScript tooling and JavaScript module configuration.

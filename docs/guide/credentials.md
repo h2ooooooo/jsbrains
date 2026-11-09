@@ -74,3 +74,7 @@ jsbrains deployments --credentials --product PhpStorm --json
 Values are hidden by default. `--show-secrets` is accepted only for an explicit credential request. Master-password input can use the documented environment-variable or piped-stdin options; it is never an ordinary command-line password argument. Avoid logs and shared files when intentionally exporting secrets.
 
 Use the [CLI reference](/reference/cli) for exact flags and exit statuses. A successful local lookup does not prove remote login works.
+
+## Credentials during shared execution
+
+The normalized adapter supplies selected Password Safe references to `@jalsoedesign/portline-dockline` only during an explicit configuration or session request. Runtime password/passphrase/key/agent options can select supported authentication without listing secret values. A saved dependency on native OpenSSH configuration remains an execution blocker; the shared bridge does not silently evaluate it or replace it with agent authentication. See [the complete connection guide](/api/integration) for canonical host verification and native-only limits.

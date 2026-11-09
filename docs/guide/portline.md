@@ -5,7 +5,7 @@ The optional Portline bridge projects global/project deployments and standalone 
 ## Install and read profiles
 
 ```sh
-npm install @jalsoedesign/jsbrains-portline
+npm install @jalsoedesign/jsbrains-portline@rc
 ```
 
 The bridge requires Node.js 22.22.2 or newer. Save the [synthetic configuration files](/guide/fixtures) and follow [language setup](/guide/examples). The configuration directory is on the host.
@@ -164,3 +164,7 @@ Use the separate [writer preview example](/guide/writing). The `jsbrains-profile
 Reopen the source to refresh settings. Normalized profiles do not establish an SSH/SFTP session or automatically execute hop relationships. Native recovery backups can contain sensitive original settings even though sync does not copy credential values.
 
 See [write safeguards and recovery](https://h2ooooooo.github.io/portline/integration/native-writing) and [connecting a selected profile](/api/integration).
+
+## Shared connection execution
+
+The native adapter `@jalsoedesign/jsbrains-portline` produces the profile records above. Add the separate optional `@jalsoedesign/portline-dockline` package to execute supported selected definitions. [The complete scoped walkthrough](/api/integration) shows FTP/SFTP and SSH clients, exact IDE/project selection, canonical host-key pins, Password Safe resolution and explicit native-only refusals. This replaces manual endpoint-to-Dockline mapping; it does not execute OpenSSH configuration or SSH-hop relationships.

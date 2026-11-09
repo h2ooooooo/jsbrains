@@ -1,98 +1,99 @@
 {
-   "name": "jsbrains-monorepo",
-   "private": true,
-   "workspaces": [
-      "packages/*"
-   ],
-   "version": "1.0.0",
-   "description": "Read JetBrains IDE installations, projects, settings, deployments and credentials from Node.js.",
-   "type": "module",
-   "engines": {
-      "node": ">=20"
-   },
-   "license": "MIT",
-   "keywords": [
-      "jetbrains",
-      "phpstorm",
-      "webstorm",
-      "deployment",
-      "keepass"
-   ],
-   "scripts": {
-      "dev": "tsx watch packages/jsbrains-cli/src/bin.ts",
-      "cli": "tsx packages/jsbrains-cli/src/bin.ts",
-      "inspect": "tsx packages/jsbrains-cli/src/bin.ts inspect",
-      "build": "npm run build --workspace @jalsoedesign/jsbrains && npm run build --workspace @jalsoedesign/jsbrains-cli && npm run build --workspace @jalsoedesign/jsbrains-portline && npm run build --workspace @jalsoedesign/jsbrains-portline-cli",
-      "test": "vitest run",
-      "test:watch": "vitest",
-      "test:local": "tsx scripts/test-local.ts",
-      "test:package": "tsx scripts/test-package.ts",
-      "lint": "eslint packages scripts *.ts *.js",
-      "typecheck": "tsc --noEmit",
-      "check": "npm run lint && npm run typecheck && npm run test && npm run build && npm run docs:api:check && npm run docs:imports:check && npm run docs:compatibility:check && npm run docs:examples:check && npm run check:locks && npm run test:locks",
-      "pack:all": "npm pack --workspaces",
-      "pack:local": "node scripts/pack-local.mjs",
-      "dev:packages": "node scripts/dev-packages.mjs",
-      "check:publication": "npm run test:publication && node scripts/check-publication.mjs",
-      "check:consumer": "node scripts/check-consumer.mjs",
-      "docs:api": "node scripts/generate-api-docs.mjs",
-      "docs:api:check": "node scripts/generate-api-docs.mjs --check",
-      "docs:install": "npm --prefix docs ci --ignore-scripts",
-      "docs:dev": "npm --prefix docs run dev",
-      "docs:preview": "npm --prefix docs run preview",
-      "docs:build": "npm run docs:compatibility && npm --prefix docs run build",
-      "demo:profiles": "node examples/test-profiles.mjs",
-      "docs:imports:check": "node scripts/check-doc-imports.mjs",
-      "docs:compatibility": "node scripts/sync-compatibility-docs.mjs",
-      "docs:compatibility:check": "node scripts/sync-compatibility-docs.mjs --check",
-      "demo:api": "node examples/test-api.mjs",
-      "docs:examples:check": "node scripts/check-doc-examples.mjs",
-      "check:locks": "node scripts/check-lockfile.mjs",
-      "test:locks": "node --test scripts/check-lockfile.test.mjs",
-      "release:lock": "node scripts/release-bootstrap.mjs --lock",
-      "check:bootstrap": "node scripts/release-bootstrap.mjs",
-      "test:publication": "node --test scripts/publication-policy.test.mjs",
-      "prepare:kdbx": "node scripts/generate-kdbx-runtime.mjs",
-      "predev": "npm run prepare:kdbx",
-      "precli": "npm run prepare:kdbx",
-      "preinspect": "npm run prepare:kdbx",
-      "pretest": "npm run prepare:kdbx",
-      "pretest:watch": "npm run prepare:kdbx",
-      "pretypecheck": "npm run prepare:kdbx",
-      "pretest:local": "npm run prepare:kdbx",
-      "pretest:package": "npm run prepare:kdbx"
-   },
-   "overrides": {
-      "kdbxweb": {
-         "@xmldom/xmldom": "^0.8.15"
-      },
-      "esbuild": "^0.28.2",
-      "vite": "^6.4.4",
-      "minimatch@>=7 <11.0.1": "11.0.5"
-   },
-   "devDependencies": {
-      "@eslint/js": "^10.0.1",
-      "@stylistic/eslint-plugin": "^5.10.0",
-      "@types/node": "^20.19.43",
-      "eslint": "^10.14.0",
-      "kdbxweb": "2.1.1",
-      "tsx": "^4.23.15",
-      "tsup": "^8.5.0",
-      "typescript": "^5.9.0",
-      "typescript-eslint": "^8.72.1",
-      "vitest": "^4.1.12",
-      "@jalsoedesign/portline-abstract": "^1.0.0",
-      "@jalsoedesign/portline-core": "^1.0.0",
-      "@jalsoedesign/portline-platform": "^1.0.0",
-      "@jalsoedesign/portline-cli": "^1.0.0",
-      "esbuild": "^0.28.2"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/h2ooooooo/jsbrains.git"
-   },
-   "homepage": "https://h2ooooooo.github.io/jsbrains/",
-   "bugs": {
-      "url": "https://github.com/h2ooooooo/jsbrains/issues"
-   }
+    "name": "jsbrains-monorepo",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "version": "1.0.0",
+    "description": "Read JetBrains IDE installations, projects, settings, deployments and credentials from Node.js.",
+    "type": "module",
+    "engines": {
+        "node": ">=20"
+    },
+    "license": "MIT",
+    "keywords": [
+        "jetbrains",
+        "phpstorm",
+        "webstorm",
+        "deployment",
+        "keepass"
+    ],
+    "scripts": {
+        "dev": "tsx watch packages/jsbrains-cli/src/bin.ts",
+        "cli": "tsx packages/jsbrains-cli/src/bin.ts",
+        "inspect": "tsx packages/jsbrains-cli/src/bin.ts inspect",
+        "build": "npm run build --workspace @jalsoedesign/jsbrains && npm run build --workspace @jalsoedesign/jsbrains-cli && npm run build --workspace @jalsoedesign/jsbrains-portline && npm run build --workspace @jalsoedesign/jsbrains-portline-cli",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:local": "tsx scripts/test-local.ts",
+        "test:package": "tsx scripts/test-package.ts",
+        "lint": "eslint packages scripts *.ts *.js",
+        "typecheck": "tsc --noEmit",
+        "check": "npm run lint && npm run typecheck && npm run test && npm run build && npm run docs:api:check && npm run docs:imports:check && npm run docs:compatibility:check && npm run docs:examples:check && npm run check:locks && npm run test:locks",
+        "pack:all": "npm pack --workspaces",
+        "pack:local": "node scripts/pack-local.mjs",
+        "dev:packages": "node scripts/dev-packages.mjs",
+        "check:publication": "npm run test:publication && node scripts/check-publication.mjs",
+        "check:consumer": "node scripts/check-consumer.mjs",
+        "docs:api": "node scripts/generate-api-docs.mjs",
+        "docs:api:check": "node scripts/generate-api-docs.mjs --check",
+        "docs:install": "npm --prefix docs ci --ignore-scripts",
+        "docs:dev": "npm --prefix docs run dev",
+        "docs:preview": "npm --prefix docs run preview",
+        "docs:build": "npm run docs:compatibility && npm --prefix docs run build",
+        "demo:profiles": "node examples/test-profiles.mjs",
+        "docs:imports:check": "node scripts/check-doc-imports.mjs",
+        "docs:compatibility": "node scripts/sync-compatibility-docs.mjs",
+        "docs:compatibility:check": "node scripts/sync-compatibility-docs.mjs --check",
+        "demo:api": "node examples/test-api.mjs",
+        "docs:examples:check": "node scripts/check-doc-examples.mjs",
+        "check:locks": "node scripts/check-lockfile.mjs",
+        "test:locks": "node --test scripts/check-lockfile.test.mjs",
+        "release:lock": "node scripts/release-bootstrap.mjs --lock",
+        "check:bootstrap": "node scripts/release-bootstrap.mjs",
+        "test:publication": "node --test scripts/publication-policy.test.mjs",
+        "prepare:kdbx": "node scripts/generate-kdbx-runtime.mjs",
+        "predev": "npm run prepare:kdbx",
+        "precli": "npm run prepare:kdbx",
+        "preinspect": "npm run prepare:kdbx",
+        "pretest": "npm run prepare:kdbx",
+        "pretest:watch": "npm run prepare:kdbx",
+        "pretypecheck": "npm run prepare:kdbx",
+        "pretest:local": "npm run prepare:kdbx",
+        "pretest:package": "npm run prepare:kdbx",
+        "demo:execution": "node examples/test-execution.mjs"
+    },
+    "overrides": {
+        "kdbxweb": {
+            "@xmldom/xmldom": "^0.8.15"
+        },
+        "esbuild": "^0.28.2",
+        "vite": "^6.4.4",
+        "minimatch@>=7 <11.0.1": "11.0.5"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@stylistic/eslint-plugin": "^5.10.0",
+        "@types/node": "^20.19.43",
+        "eslint": "^10.14.0",
+        "kdbxweb": "2.1.1",
+        "tsx": "^4.23.15",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.0",
+        "typescript-eslint": "^8.72.1",
+        "vitest": "^4.1.12",
+        "@jalsoedesign/portline-abstract": "^1.0.0-rc.1",
+        "@jalsoedesign/portline-core": "^1.0.0-rc.1",
+        "@jalsoedesign/portline-platform": "^1.0.0-rc.1",
+        "@jalsoedesign/portline-cli": "^1.0.0-rc.1",
+        "esbuild": "^0.28.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/h2ooooooo/jsbrains.git"
+    },
+    "homepage": "https://h2ooooooo.github.io/jsbrains/",
+    "bugs": {
+        "url": "https://github.com/h2ooooooo/jsbrains/issues"
+    }
 }

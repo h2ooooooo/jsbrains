@@ -7,7 +7,7 @@ Requires Node.js 20+. This CLI reads through `@jalsoedesign/jsbrains`. It does n
 ## Installation
 
 ```sh
-npm install -g @jalsoedesign/jsbrains-cli
+npm install -g @jalsoedesign/jsbrains-cli@rc
 jsbrains --help
 ```
 

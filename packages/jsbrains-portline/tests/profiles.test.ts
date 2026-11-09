@@ -96,3 +96,26 @@ it('reports locked Password Safe credentials without caching secrets in profiles
 
    expect(await source.resolve(auth.credential)).toEqual({state: 'locked'});
 });
+
+it('projects saved FTP options and marks OpenSSH-dependent profiles as native-only execution', async () => {
+   const {config} = await fixture();
+   await writeFile(path.join(config, 'options', 'webServers.xml'), [
+      '<application><component name="WebServers"><option name="servers">',
+      '<webServer id="ftp" name="FTP"><fileTransfer accessType="FTP" host="ftp.example" username="alice">',
+      '<advancedOptions><advancedOptions passiveMode="false" shareSSLContext="false" /></advancedOptions>',
+      '</fileTransfer></webServer>',
+      '<webServer id="native" name="Native"><fileTransfer accessType="SFTP" host="ssh.example" useOpenSSHConfig="true" /></webServer>',
+      '<webServer id="key" name="Key"><fileTransfer accessType="SFTP" host="ssh.example" authType="KEY_PAIR" keyPath="$UNKNOWN$/id" /></webServer>',
+      '</option></component></application>'
+   ].join(''));
+   const installation = await JetBrains.fromConfigPath(config);
+   const source = await JetBrainsProfileSource.fromInstallation(installation);
+   const ftp = source.get('global/deployments/ftp')!.connections[0]!;
+
+   expect(ftp).toMatchObject({kind: 'ftp', tls: 'none', passive: false});
+   expect(ftp.unsupportedOptions).toContain('advancedOptions.shareSSLContext');
+   expect(source.get('global/deployments/key')!.connections[0]!.unsupportedOptions)
+      .toContain('unresolved private-key path macro');
+   expect(source.get('global/deployments/native')!.connections[0]!.unsupportedOptions)
+      .toContain('useOpenSSHConfig');
+});
