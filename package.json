@@ -61,7 +61,8 @@
         "pretypecheck": "npm run prepare:kdbx",
         "pretest:local": "npm run prepare:kdbx",
         "pretest:package": "npm run prepare:kdbx",
-        "demo:execution": "node examples/test-execution.mjs"
+        "demo:execution": "node examples/test-execution.mjs",
+        "test:docs-links": "node --test scripts/doc-links.test.mjs"
     },
     "overrides": {
         "kdbxweb": {
