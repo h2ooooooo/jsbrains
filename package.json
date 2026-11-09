@@ -82,10 +82,10 @@
         "typescript": "^5.9.0",
         "typescript-eslint": "^8.72.1",
         "vitest": "^4.1.12",
-        "@jalsoedesign/portline-abstract": "^1.0.0-rc.1",
-        "@jalsoedesign/portline-core": "^1.0.0-rc.1",
-        "@jalsoedesign/portline-platform": "^1.0.0-rc.1",
-        "@jalsoedesign/portline-cli": "^1.0.0-rc.1",
+        "@jalsoedesign/portline-abstract": "^1.0.0",
+        "@jalsoedesign/portline-core": "^1.0.0",
+        "@jalsoedesign/portline-platform": "^1.0.0",
+        "@jalsoedesign/portline-cli": "^1.0.0",
         "esbuild": "^0.28.2"
     },
     "repository": {

@@ -5,7 +5,7 @@ The optional Portline bridge projects global/project deployments and standalone 
 ## Install and read profiles
 
 ```sh
-npm install @jalsoedesign/jsbrains-portline@rc
+npm install @jalsoedesign/jsbrains-portline
 ```
 
 The bridge requires Node.js 22.22.2 or newer. Save the [synthetic configuration files](/guide/fixtures) and follow [language setup](/guide/examples). The configuration directory is on the host.

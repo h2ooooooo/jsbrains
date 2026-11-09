@@ -144,4 +144,4 @@ For complete source selection, language variants, runtime options and native-onl
 [connection execution guide](https://h2ooooooo.github.io/jsbrains/api/integration). SSH fingerprints must use
 canonical SHA256 base64; trust callbacks never persist approval. The reader CLI gains no network commands.
 
-See [First release candidate](RELEASE_RC.md) for RC versions and installation commands.
+See [Stable release](RELEASE.md) for versions, installation commands and the compatibility policy.

@@ -16,7 +16,7 @@ npm pack --workspace @jalsoedesign/jsbrains
 npm install "/path/to/package.tgz"
 ```
 
-After publication, the intended installation command is `npm install @jalsoedesign/jsbrains@rc`.
+After publication, the intended installation command is `npm install @jalsoedesign/jsbrains`.
 
 ## Quick start
 

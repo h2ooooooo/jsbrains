@@ -55,3 +55,9 @@ This verifies candidate payloads, not their availability on npm. Publish the exa
 The native reader remains independent of transport packages. With the local shared integration installed, run `npm run demo:execution` to exercise real normalized configuration mapping and unsupported-option refusal without a server. `docs/api/integration.md` contains matching complete scoped examples in TypeScript, JavaScript, MJS and CommonJS; downloadable sources live under `docs/public/examples/connect-profile.*`. These examples require explicit real connection inputs and are not invoked by metadata fixture checks.
 
 The same check validates all four shared connection downloads, their syntax and explicit-input runtime guards without opening a socket. When the optional shared bridge is installed, it also strictly type-checks the complete connection program against its actual declarations. Standalone reader validation does not install transport packages.
+
+## Stable releases and compatibility
+
+Keep dependencies and optional peers between the published family packages on stable caret ranges, such as `^1.0.0`. Preserve existing public APIs and supported behavior throughout a major version. Release compatible fixes as patch versions and compatible additions as minor versions. Breaking changes require a new major version. Raise a dependency minimum only when the implementation needs a newer supported API or fix.
+
+Caret ranges permit compatible updates. Consumers can use `npm update` to refresh their lockfiles within those ranges; `npm ci` continues to reproduce the versions already locked.

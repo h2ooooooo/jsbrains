@@ -5,7 +5,7 @@ Start with the original `jsbrains` read-only command. The normalized `jsbrains-p
 ## Install
 
 ```sh
-npm install --global @jalsoedesign/jsbrains-cli@rc
+npm install --global @jalsoedesign/jsbrains-cli
 ```
 
 For project-local use, install without `--global` and prefix commands with `npm exec --`. See [runtime requirements](/guide/installation).

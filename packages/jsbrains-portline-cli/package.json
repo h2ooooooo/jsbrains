@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0-rc.1",
+    "version": "1.0.0",
     "type": "module",
     "engines": {
         "node": ">=22.22.2"
@@ -20,13 +20,13 @@
         "prepack": "npm run build"
     },
     "dependencies": {
-        "@jalsoedesign/jsbrains-portline": "^1.0.0-rc.1",
-        "@jalsoedesign/portline-cli": "^1.0.0-rc.1",
-        "@jalsoedesign/portline-platform": "^1.0.0-rc.1"
+        "@jalsoedesign/jsbrains-portline": "^1.0.0",
+        "@jalsoedesign/portline-cli": "^1.0.0",
+        "@jalsoedesign/portline-platform": "^1.0.0"
     },
     "publishConfig": {
         "access": "public",
-        "tag": "rc"
+        "tag": "latest"
     },
     "repository": {
         "type": "git",

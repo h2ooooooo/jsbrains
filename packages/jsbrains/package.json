@@ -1,6 +1,6 @@
 {
     "name": "@jalsoedesign/jsbrains",
-    "version": "1.0.0-rc.1",
+    "version": "1.0.0",
     "description": "Read JetBrains IDE installations, projects, settings, deployments and credentials from Node.js.",
     "type": "module",
     "main": "./dist/index.cjs",
@@ -51,7 +51,7 @@
     },
     "publishConfig": {
         "access": "public",
-        "tag": "rc"
+        "tag": "latest"
     },
     "repository": {
         "type": "git",
