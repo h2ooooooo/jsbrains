@@ -29,7 +29,7 @@
         "test:package": "tsx scripts/test-package.ts",
         "lint": "eslint packages scripts *.ts *.js",
         "typecheck": "tsc --noEmit",
-        "check": "npm run lint && npm run typecheck && npm run test && npm run build && npm run docs:api:check && npm run docs:imports:check && npm run docs:compatibility:check && npm run docs:examples:check && npm run check:locks && npm run test:locks",
+        "check": "npm run lint && npm run build && npm run typecheck && npm run test && npm run docs:api:check && npm run docs:imports:check && npm run docs:compatibility:check && npm run docs:examples:check && npm run check:locks && npm run test:locks",
         "pack:all": "npm pack --workspaces",
         "pack:local": "node scripts/pack-local.mjs",
         "dev:packages": "node scripts/dev-packages.mjs",
