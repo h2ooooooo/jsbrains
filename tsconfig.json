@@ -12,7 +12,8 @@
       "paths": {
          "@/*": ["packages/jsbrains/src/*"],
          "@cli/*": ["packages/jsbrains-cli/src/*"],
-         "@jalsoedesign/jsbrains": ["packages/jsbrains/src/index.ts"]
+         "@jalsoedesign/jsbrains": ["packages/jsbrains/src/index.ts"],
+         "@jalsoedesign/jsbrains-portline": ["packages/jsbrains-portline/src/index.ts"]
       },
       "types": ["node"]
    },
